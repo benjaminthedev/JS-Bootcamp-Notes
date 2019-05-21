@@ -1,0 +1,22 @@
+$(document).ready(function() {
+	$.getJSON("https://api.icndb.com/jokes/random", function(json) {
+		$(".message").html((json.value.joke));
+		updateTweet(json)
+	});
+});
+$("#theMessage").on("click", function() {
+	$.getJSON("https://api.icndb.com/jokes/random", function(json) {
+		$(".message").html((json.value.joke));
+		updateTweet(json);
+	});
+});
+
+function updateTweet(json) {
+	var theQuote = json.value.joke;
+	$("#twitterSend").attr("href", "https://twitter.com/intent/tweet?text=" + theQuote + "@benjaminthedev I love your quote generator!");
+}
+
+
+
+
+
